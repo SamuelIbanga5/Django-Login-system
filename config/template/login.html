@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <div class="">
+        <h1 class="loginpage">LOGIN VIEW</h1>
+    </div>
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>
+            <label for="">Username:</label>
+            <input type="text" name="username">
+            </p>
+            <p>
+            <label for="">Password:</label>
+            <input type="password" name="password">
+            </p>
+            <input type="submit" value="Submit" class="btn btn-dark text-light">
+        </form>
+        {% for message in messages %}
+            <p> {{message}}</p>
+        {% endfor %}
+        
+        <p>Don't have an account? <a href={% url 'register' %}>Sign Up</a> </p>
+    </div>
+</div>
+
+{% endblock %}
